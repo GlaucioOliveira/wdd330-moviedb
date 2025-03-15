@@ -3,7 +3,7 @@ import { getParam } from "./utils.mjs";
 
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector("#login-form");
-    const redirect = getParam("redirect") || "/orders/";
+    const redirect = getParam("redirect") || "/movies/";
 
     form.addEventListener("submit", async (event) => {
         event.preventDefault();
