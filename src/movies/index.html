@@ -5,19 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MoviesDB | Index</title>
     <script src="../js/main.js" type="module"></script>
-    <script src="../js/login.js" type="module"></script>
   </head>
 
   <body>
     <header class="divider" id="main-header"></header>
     <body>
       <div class="container">
-        <h1>/Movies</h1>
+        <h4>Index of /Movies</h4>
+        <br>
         <div class="row">
           <div class="col">
             <button class="btn btn-primary" type="button">Add Movie</button>
           </div>
+          <div class="col">
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success" type="submit">
+                Search
+              </button>
+            </form>
         </div>
+        <br>
         <div class="table-responsive">
           <table class="table">
             <thead>

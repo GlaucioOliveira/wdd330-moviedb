@@ -19,7 +19,16 @@ export async function login(creds, redirect = "/") {
       alert("Login failed: " + err.message);
     }
   }
-  
+
+export async function logout() {
+    try {
+        localStorage.removeItem(tokenKey);
+        window.location = "/login/index.html";
+    } catch (err) {
+        console.error("Logout failed: " + err.message);
+    }
+}
+
 export function isTokenValid(token) {
     if (!token) return false;
     const decoded = jwtDecode(token); 
