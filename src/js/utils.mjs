@@ -105,7 +105,7 @@ export function alertMessage(message, scroll = true, duration = 3000) {
       main.removeChild(this);
     }
   });
-  const main = document.querySelector("main");
+  const main = document.querySelector("#alert-container");
   main.prepend(alert);
   // make sure they see the alert by scrolling to the top of the window
   //we may not always want to do this...so default to scroll=true, but allow it to be passed in and overridden.

@@ -16,7 +16,19 @@ export async function login(creds, redirect = "/") {
         alert("Login failed: No token received");
       }
     } catch (err) {
-      alert("Login failed: " + err.message);
+      document.querySelector("#alert-container").innerHTML = `<div class="alert alert-danger" role="alert">Error: ${err.message}</div>`; // Display error message
+    }
+  }
+
+  export function userName() {
+    try {
+        const token = getLocalStorage(tokenKey);
+        if (!token) return null;
+        const decoded = jwtDecode(token); 
+        return decoded.name || null; // Return the name from the decoded token
+    } catch (err) {
+        console.error("Failed to decode token: " + err.message);
+        return null;
     }
   }
 
