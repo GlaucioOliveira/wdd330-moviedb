@@ -12,4 +12,13 @@ window.logout = logout;
 
 setTimeout(function () {
     document.getElementById("header-username").innerText = userName() ? userName() : "Guest";
+
+    if(document.location.pathname === "/movies/")
+    {
+        document.getElementById("nav-movies").classList.add("active");
+    }
+    else if(document.location.pathname === "/wishlists/")
+    {
+        document.getElementById("nav-wishlists").classList.add("active");
+    }    
   }, 100);
