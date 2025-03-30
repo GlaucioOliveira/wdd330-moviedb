@@ -32,7 +32,7 @@ export async function checkout(payload) {
   return await fetch(baseURL + "/checkout/", options).then(convertToJson);
 }
 export async function loginRequest(creds) {
-  const response = await fetch("http://server-nodejs.cit.byui.edu:3000/login", {
+  const response = await fetch("https://api.goliveira.com/rpc/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(creds),
@@ -43,7 +43,7 @@ export async function loginRequest(creds) {
   }
 
   const data = await response.json();
-  const { accessToken } = data; 
-  return accessToken;
+  const { token } = data; 
+  return token;
 }
 

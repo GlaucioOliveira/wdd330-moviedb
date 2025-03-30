@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MoviesDB | Index</title>
+    <script src="../../js/main.js" type="module"></script>
+    <script src="../../js/movies-edit.js" type="module"></script>
+  </head>
+
+  <body>
+    <header class="divider" id="main-header"></header>
+    <div class="container">
+      <h4>Movies / Edit #<span id="movie-id"></span></h4>
+        <!-- <div class="row">
+            <div class="col-6">
+                <div class="input-group"><span class="input-group-text">Title</span><input class="form-control" type="text" /><span class="input-group-text">Year</span><input class="form-control" type="text" /><button class="btn btn-primary" type="button">Search</button></div>
+            </div>
+        </div> -->
+        <div class="row align-content-center">
+            <div class="col offset-md-0">
+                <label class="form-label">Title</label><input class="form-control" type="text" />
+                <label class="form-label">Year</label><input class="form-control" type="text" />
+                <label class="form-label">Genre</label>
+                
+                <select class="form-select" id="genreSelect">
+                  <option value="">-- Select Genre --</option>
+                  <option value="action">Action</option>
+                  <option value="comedy">Comedy</option>
+                  <option value="drama">Drama</option>
+                  <option value="horror">Horror</option>
+                  <option value="sci-fi">Sci-Fi</option>
+                  <option value="romance">Romance</option>
+                  <option value="thriller">Thriller</option>
+                  <option value="animation">Animation</option>
+                  <option value="documentary">Documentary</option>
+                  <option value="fantasy">Fantasy</option>
+                </select>
+                
+                <label class="form-label">Media Type</label>
+                <select class="form-control" >
+                  <option>-- Select Media Type --</option>
+                  <option value="Blu-ray">Blu-ray</option>
+                  <option value="Digital">Digital</option>
+                  <option value="DVD">DVD</option>
+                  <option value="VHS">VHS</option>
+                </select>
+                
+                <label class="form-label">Location</label><input class="form-control" placeholder="Physical or digital location of the movie" type="text" />                  
+                <br>
+                <button class="btn btn-primary" type="button">Save</button></form>
+                <button class="btn btn-secondary" type="button" onclick="window.history.back()">Cancel</button></form>
+            </div>
+        </div>
+    </div>
+
+    <footer id="main-footer"></footer>
+  </body>
+</html>
