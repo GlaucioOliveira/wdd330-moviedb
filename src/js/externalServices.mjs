@@ -1,4 +1,4 @@
-const baseURL = "https://wdd330-backend.onrender.com";
+const baseURL = "https://api.goliveira.com";
 
 export async function convertToJson(res) {
   const data = await res.json();
@@ -9,28 +9,60 @@ export async function convertToJson(res) {
   }
 }
 
-export async function getProductsByCategory(category) {
-  const response = await fetch(`${baseURL}/products/search/${category}`);
+export async function getMoviesList() {
+  const response = await fetch(`${baseURL}/movies?order=title`);
   const data = await convertToJson(response);
-  return data.Result;
+  return data;
 }
 
-export async function findProductById(id) {
-  const response = await fetch(baseURL + `/product/${id}`);
-  const product = await convertToJson(response);
-  return product.Result;
+export async function getMovieById(id) {
+  const response = await fetch(`${baseURL}/movies?id=eq.${id}`);
+  const data = await convertToJson(response);
+  return data[0];
 }
 
-export async function checkout(payload) {
+export async function editMovie(id, payload) {
+  const token = JSON.parse(localStorage.getItem("so-token")); 
+
+  const options = {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`
+    },
+    body: JSON.stringify(payload),
+  };
+  return await fetch(`${baseURL}/movies?id=eq.${id}`, options);
+}
+
+export async function deleteMovie(id) {
+  const token = JSON.parse(localStorage.getItem("so-token")); 
+
+  const options = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`
+    }
+  };
+  return await fetch(`${baseURL}/movies?id=eq.${id}`, options);
+}
+
+export async function createMovie(payload) {
+  const token = JSON.parse(localStorage.getItem("so-token")); 
+
   const options = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`
     },
     body: JSON.stringify(payload),
   };
-  return await fetch(baseURL + "/checkout/", options).then(convertToJson);
+  return await fetch(`${baseURL}/movies`, options);
 }
+
+
 export async function loginRequest(creds) {
   const response = await fetch("https://api.goliveira.com/rpc/login", {
     method: "POST",

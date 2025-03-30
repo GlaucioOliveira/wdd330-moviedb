@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MoviesDB | Index</title>
     <script src="../js/main.js" type="module"></script>
+    <script src="../js/movies.js" type="module"></script>
   </head>
 
   <body>
@@ -43,33 +44,7 @@
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>Matrix 1</td>
-                <td>Action, Sci-FI</td>
-                <td>1999</td>
-                <td>DVD</td>
-                <td>Library, shelf 2</td>
-                <td>
-                  <button class="btn btn-primary" type="button" onclick="window.location='/movies/edit/?id=1'">
-                       Edit    </button
-                  ><span>  </span
-                  ><button class="btn btn-primary" type="button">Remove</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Rio</td>
-                <td>Animation, Adventure</td>
-                <td>2011</td>
-                <td>DVD</td>
-                <td>Library, shelf 1</td>
-                <td>
-                  <button class="btn btn-primary" type="button" onclick="window.location='/movies/edit/?id=2'">
-                       Edit    </button
-                  ><span>  </span
-                  ><button class="btn btn-primary" type="button">Remove</button>
-                </td>
-              </tr>
+            <tbody id="moviesList">
             </tbody>
           </table>
         </div>
