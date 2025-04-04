@@ -31,6 +31,7 @@ async function editForm(form) {
   const formData = new FormData(form);
   const movieData = {
     id: formData.get("id"),
+    poster: formData.get("poster"),
     title: formData.get("title"),
     year: formData.get("year"),
     genre: formData.get("genre"),

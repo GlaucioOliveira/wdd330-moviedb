@@ -21,6 +21,12 @@ export async function getMovieById(id) {
   return data[0];
 }
 
+export async function getMovieData(movie, year) {
+  const response = await fetch(`http://www.omdbapi.com/?t=${movie}&y=${year}&apikey=de78baf9`);
+  const data = await convertToJson(response);
+  return data;
+}
+
 export async function editMovie(id, payload) {
   const token = JSON.parse(localStorage.getItem("so-token")); 
 

@@ -5,57 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MoviesDB | Wishlist</title>
     <script src="../js/main.js" type="module"></script>
-    <style>
-      table {
-        width: 100%;
-        table-layout: fixed; /* Ensures equal width for columns */
-      }
-      th, td {
-        word-wrap: break-word; /* Makes sure the content breaks into the next line if necessary */
-      }
-    </style>
+    <script src="../js/wishlist.js" type="module"></script>
   </head>
 
   <body>
     <header class="divider" id="main-header"></header>
       <div class="container">
-        <h4>Index of /Wishlists</h4>
+        <h4>Index of /Wishlist</h4>
         <br>
         <div class="row">
-          <div class="col">
-            <button class="btn btn-primary" type="button">Add Wishlist</button>
-          </div>
         <br>
         <div class="table-responsive">
           <table class="table">
             <thead>
               <tr>
-                <th>Name</th>
+                <th>Title</th>
                 <th>Genre</th>
+                <th>Year</th>
+                <th>Media Type</th>
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>80`s Movies</td>
-                <td>Thriller</td>
-                <td>
-                  <button class="btn btn-primary" type="button">
-                       Edit    </button
-                  ><span>  </span
-                  ><button class="btn btn-primary" type="button">Remove</button>
-                </td>
-              </tr>
-              <tr>
-                <td>90`s Movies</td>
-                <td>Comedy</td>
-                <td>
-                  <button class="btn btn-primary" type="button">
-                       Edit    </button
-                  ><span>  </span
-                  ><button class="btn btn-primary" type="button">Remove</button>
-                </td>
-              </tr>
+            <tbody id="moviesList">
             </tbody>
           </table>
         </div>

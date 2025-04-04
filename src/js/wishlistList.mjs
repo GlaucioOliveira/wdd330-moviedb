@@ -1,36 +1,37 @@
 import { getMoviesList } from "./externalServices.mjs";
 
-export function movieList(selector) {
+export function wishlistList(selector, wishlistOnly = false) {
   getMoviesList()
     .then((data) => {
-      if (!data || data.length === 0) {
+      let filteredData = data;
+
+      if (wishlistOnly) {
+        filteredData = data.filter((item) => item.wishlist);
+      }
+
+      if (!filteredData || filteredData.length === 0) {
         document.querySelector(selector).innerHTML =
-          "<p>No Movies Added Yet.</p>";
+          "<p>Wishlist is empty.</p>";
         return;
       }
 
-      const htmlItems = data.map((item) => moviesTemplate(item));
+      const htmlItems = filteredData.map((item) => moviesTemplate(item));
       document.querySelector(selector).innerHTML = htmlItems.join("");
     })
     .catch((error) => {
-      console.error("Error fetching Movies List:", error);
+      console.error("Error fetching Wish List:", error);
       document.querySelector(selector).innerHTML =
-        "<p>Failed to load movies list. Please try again later.</p>";
+        "<p>Failed to load Wish List. Please try again later.</p>";
     });
 }
 
 function moviesTemplate(movie) {
-  let wishlist = "";
-  if (movie.wishlist) {
-    wishlist = ` <span class="badge badge-pill text-bg-info">Wishlist</span>`;
-  }
 
   return `<tr>
-                <td><img src="${movie.poster}" style="width:128px;padding-right:10px;"><strong>${movie.title}</strong>${wishlist}</td>
+                <td>${movie.title}<span class="badge badge-pill text-bg-info">Wishlist</span></td>
                 <td>${movie.genre}</td>
                 <td>${movie.year}</td>
                 <td>${movie.mediatype}</td>
-                <td>${movie.location}</td>
                 <td>
                   <button class="btn btn-secondary" type="button" onclick="window.location='/movies/edit/?id=${movie.id}'">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">

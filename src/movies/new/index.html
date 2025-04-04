@@ -19,35 +19,20 @@
         </div> -->
       <div class="row align-content-center">
         <form class="form" action="/save-movie" method="PUT">
+          <img src="" id="posterImg" style="width: 128px; display: none;" class="img-fluid" />
           <div class="col offset-md-0">
             <input class="form-control" name="id" id="id" type="hidden" />
-            <label class="form-label">Title</label
-            ><input class="form-control" name="title" id="title" type="text" />
+            <input class="form-control" name="poster" id="poster" type="hidden" />
+            <label class="form-label">Title</label>
+            <input class="form-control" name="title" id="title" type="text" />
             <label class="form-label">Year</label
             ><input
               class="form-control"
               name="year"
               id="year"
-              type="number"
-              minlength="1900"
-              maxlength="2050"
-            />
+              type="number" readonly />
             <label class="form-label">Genre</label>
-
-            <select class="form-select" id="genre" name="genre">
-              <option value="">-- Select Genre --</option>
-              <option value="Action">Action</option>
-              <option value="Adventure">Adventure</option>
-              <option value="Animation">Animation</option>
-              <option value="Comedy">Comedy</option>
-              <option value="Drama">Drama</option>
-              <option value="Horror">Horror</option>
-              <option value="Sci-Fi">Sci-Fi</option>
-              <option value="Romance">Romance</option>
-              <option value="Thriller">Thriller</option>
-              <option value="Documentary">Documentary</option>
-              <option value="Fantasy">Fantasy</option>
-            </select>
+            <input class="form-control" name="genre" id="genre" type="text" readonly />
 
             <label class="form-label">Media Type</label>
             <select class="form-control" name="mediatype" id="mediatype">
