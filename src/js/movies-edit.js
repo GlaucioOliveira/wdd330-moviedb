@@ -9,12 +9,24 @@ setTimeout(async function () {
 
   if (movieInfo) {
     document.getElementById("id").value = movieInfo.id;
+    document.getElementById("poster").value = movieInfo.poster;
     document.getElementById("title").value = movieInfo.title;
     document.getElementById("year").value = movieInfo.year;
     document.getElementById("genre").value = movieInfo.genre;
     document.getElementById("mediatype").value = movieInfo.mediatype;
     document.getElementById("location").value = movieInfo.location;
+    document.getElementById("wishlist").checked = movieInfo.wishlist;
   }
+
+  if(!movieInfo?.poster){
+    document.getElementById("posterImg").style.display = "none";  
+  }
+  else{
+  document.getElementById("posterImg").src = movieInfo?.poster;
+  document.getElementById("posterImg").style.display = "block";
+  document.getElementById("poster").value = movieInfo?.poster;
+  }
+
 }, 100);
 
 document.addEventListener("DOMContentLoaded", () => {
