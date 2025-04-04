@@ -374,3 +374,7 @@ td:last-child {
   width: 128px;
   height: 128px;
 } */
+
+.nav-link .active{
+  text-decoration: und;
+}

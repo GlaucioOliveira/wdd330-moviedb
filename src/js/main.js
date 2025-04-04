@@ -14,8 +14,10 @@ setTimeout(function () {
     : "Guest";
 
   if (document.location.pathname === "/movies/") {
+    document.getElementById("nav-movies").classList.add("text-decoration-underline");
     document.getElementById("nav-movies").classList.add("active");
   } else if (document.location.pathname === "/wishlists/") {
+    document.getElementById("nav-wishlists").classList.add("text-decoration-underline");
     document.getElementById("nav-wishlists").classList.add("active");
   }
 }, 100);
