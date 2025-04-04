@@ -3,21 +3,27 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 import { loadHeaderFooter } from "../js/utils.mjs";
 import { logout, userName } from "./auth.mjs";
-
-loadHeaderFooter();
+import {checkLogin} from "./auth.mjs";
 
 window.logout = logout;
 
-setTimeout(function () {
-  document.getElementById("header-username").innerText = userName()
-    ? userName()
-    : "Guest";
+document.addEventListener("DOMContentLoaded", async () => {
+      checkLogin();
+      
+      let partialsLoaded = await loadHeaderFooter();
+      let userNameStr = await userName();
 
-  if (document.location.pathname === "/movies/") {
-    document.getElementById("nav-movies").classList.add("text-decoration-underline");
-    document.getElementById("nav-movies").classList.add("active");
-  } else if (document.location.pathname === "/wishlists/") {
-    document.getElementById("nav-wishlists").classList.add("text-decoration-underline");
-    document.getElementById("nav-wishlists").classList.add("active");
-  }
-}, 100);
+      if(partialsLoaded){
+          document.getElementById("header-username").innerText = userNameStr
+          ? userNameStr
+          : "Guest";
+      
+        if (document.location.pathname === "/movies/") {
+          document.getElementById("nav-movies").classList.add("text-decoration-underline");
+          document.getElementById("nav-movies").classList.add("active");
+        } else if (document.location.pathname === "/wishlists/") {
+          document.getElementById("nav-wishlists").classList.add("text-decoration-underline");
+          document.getElementById("nav-wishlists").classList.add("active");
+        }
+      }
+});

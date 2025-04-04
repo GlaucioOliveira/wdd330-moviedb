@@ -20,7 +20,7 @@ export async function login(creds, redirect = "/") {
     }
   }
 
-  export function userName() {
+  export async function userName() {
     try {
         const token = getLocalStorage(tokenKey);
         if (!token) return null;
@@ -53,7 +53,7 @@ export function checkLogin() {
   if (!valid) {
     localStorage.removeItem(tokenKey);
     const location = window.location;
-    window.location = `/login/index.html?redirect=${location.pathname}`;
+    window.location = `/login/index.html?redirect=${location.pathname}${location.search}`;
   } else {
     return token;
   }

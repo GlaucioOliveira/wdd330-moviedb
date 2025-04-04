@@ -29,7 +29,7 @@ setTimeout(async function () {
 
 }, 100);
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   // Attach event listener to the form submit
   const form = document.querySelector("form");
   form.addEventListener("submit", (event) => {

@@ -41,6 +41,20 @@ export async function editMovie(id, payload) {
   return await fetch(`${baseURL}/movies?id=eq.${id}`, options);
 }
 
+export async function moviePurchased(id) {
+  const token = JSON.parse(localStorage.getItem("so-token")); 
+
+  const options = {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`
+    },
+    body: JSON.stringify({"wishlist": false})
+  };
+  return await fetch(`${baseURL}/movies?id=eq.${id}`, options);
+}
+
 export async function deleteMovie(id) {
   const token = JSON.parse(localStorage.getItem("so-token")); 
 
@@ -53,6 +67,8 @@ export async function deleteMovie(id) {
   };
   return await fetch(`${baseURL}/movies?id=eq.${id}`, options);
 }
+
+
 
 export async function createMovie(payload) {
   const token = JSON.parse(localStorage.getItem("so-token")); 

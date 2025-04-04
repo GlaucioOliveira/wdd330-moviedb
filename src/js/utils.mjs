@@ -91,8 +91,10 @@ export async function loadHeaderFooter() {
   const headerEl = document.getElementById("main-header");
   const footerEl = document.getElementById("main-footer");
 
-  renderWithTemplate(headerTemplateFn, headerEl);
-  renderWithTemplate(footerTemplateFn, footerEl);
+  await renderWithTemplate(headerTemplateFn, headerEl);
+  await renderWithTemplate(footerTemplateFn, footerEl);
+
+  return true;
 }
 
 export function alertMessage(message, scroll = true, duration = 3000) {
