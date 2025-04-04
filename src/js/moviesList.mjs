@@ -20,8 +20,13 @@ export function movieList(selector) {
 }
 
 function moviesTemplate(movie) {
+  let wishlist = "";
+  if (movie.wishlist) {
+    wishlist = ` <span class="badge badge-pill text-bg-info">Wishlist</span>`;
+  }
+
   return `<tr>
-                <td>${movie.title}</td>
+                <td>${movie.title}${wishlist}</td>
                 <td>${movie.genre}</td>
                 <td>${movie.year}</td>
                 <td>${movie.mediatype}</td>

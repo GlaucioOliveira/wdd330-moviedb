@@ -13,7 +13,8 @@ export default defineConfig({
         movies: resolve(__dirname, "src/movies/index.html"),
         new_movie: resolve(__dirname, "src/movies/new/index.html"),
         edit_movie: resolve(__dirname, "src/movies/edit/index.html"),
-        wishlists: resolve(__dirname, "src/wishlists/index.html"),},
+        wishlists: resolve(__dirname, "src/wishlists/index.html"),
+      },
     },
   },
 });
