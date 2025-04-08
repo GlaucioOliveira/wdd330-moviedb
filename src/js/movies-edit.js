@@ -30,14 +30,15 @@ setTimeout(async function () {
 }, 100);
 
 document.addEventListener("DOMContentLoaded", async () => {
-  if (!form.checkValidity()) {
-    // Let the browser show validation errors
-    return;
-  }
-  
   // Attach event listener to the form submit
   const form = document.querySelector("form");
   form.addEventListener("submit", (event) => {
+
+    if (!form.checkValidity()) {
+      // Let the browser show validation errors
+      return;
+    }
+    
     event.preventDefault(); // Prevent default form submission
     editForm(form); // Call checkout method
   });
