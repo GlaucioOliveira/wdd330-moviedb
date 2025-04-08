@@ -18,10 +18,10 @@ document.addEventListener("DOMContentLoaded", async () => {
           ? userNameStr
           : "Guest";
       
-        if (document.location.pathname === "/movies/") {
+        if (document.location.pathname === "/wdd330-moviedb/movies/") {
           document.getElementById("nav-movies").classList.add("text-decoration-underline");
           document.getElementById("nav-movies").classList.add("active");
-        } else if (document.location.pathname === "/wishlists/") {
+        } else if (document.location.pathname === "/wdd330-moviedb/wishlists/") {
           document.getElementById("nav-wishlists").classList.add("text-decoration-underline");
           document.getElementById("nav-wishlists").classList.add("active");
         }

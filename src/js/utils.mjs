@@ -86,8 +86,8 @@ export function loadTemplate(path) {
 }
 
 export async function loadHeaderFooter() {
-  const headerTemplateFn = loadTemplate("/partials/header.html");
-  const footerTemplateFn = loadTemplate("/partials/footer.html");
+  const headerTemplateFn = loadTemplate("/wdd330-moviedb/partials/header.html");
+  const footerTemplateFn = loadTemplate("/wdd330-moviedb/partials/footer.html");
   const headerEl = document.getElementById("main-header");
   const footerEl = document.getElementById("main-footer");
 

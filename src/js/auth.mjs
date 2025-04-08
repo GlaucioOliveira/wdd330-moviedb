@@ -4,7 +4,7 @@ import { jwtDecode } from "jwt-decode";
 
 const tokenKey = "so-token";
 
-export async function login(creds, redirect = "/") {
+export async function login(creds, redirect = "/wdd330-moviedb") {
     try {
       const token = await loginRequest(creds);
       console.log("Received token from loginRequest:", token);  // Debugging
@@ -35,7 +35,7 @@ export async function login(creds, redirect = "/") {
 export async function logout() {
     try {
         localStorage.removeItem(tokenKey);
-        window.location = "/login/index.html";
+        window.location = "/wdd330-moviedb/login/index.html";
     } catch (err) {
         console.error("Logout failed: " + err.message);
     }
@@ -53,7 +53,7 @@ export function checkLogin() {
   if (!valid) {
     localStorage.removeItem(tokenKey);
     const location = window.location;
-    window.location = `/login/index.html?redirect=${location.pathname}${location.search}`;
+    window.location = `/wdd330-moviedb/login/index.html?redirect=${location.pathname}${location.search}`;
   } else {
     return token;
   }

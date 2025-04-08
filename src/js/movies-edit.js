@@ -54,5 +54,5 @@ async function editForm(form) {
 
   await editMovie(formData.get("id"), movieData);
 
-  window.location = "/movies/";
+  window.location = "/wdd330-moviedb/movies/";
 }

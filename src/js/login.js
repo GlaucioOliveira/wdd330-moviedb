@@ -6,7 +6,7 @@ import { getParam } from "./utils.mjs";
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("#login-form");
-  const redirect = getParam("redirect") || "/movies/";
+  const redirect = getParam("redirect") || "/wdd330-moviedb/movies/";
 
   document.querySelector("#email").value = localStorage.getItem("email") || "";
 

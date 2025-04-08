@@ -30,7 +30,7 @@ async function editForm(form) {
 
   await createMovie(movieData);
 
-  window.location = "/movies/";
+  window.location = "/wdd330-moviedb/movies/";
 }
 
 
