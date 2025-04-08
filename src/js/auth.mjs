@@ -1,5 +1,5 @@
 import { loginRequest } from "./externalServices.mjs";
-import { setLocalStorage, getLocalStorage, setSessionStorage, getSessionStorage } from "./utils.mjs";
+import { setSessionStorage, getSessionStorage } from "./utils.mjs";
 import { jwtDecode } from "jwt-decode"; 
 
 const tokenKey = "so-token";
@@ -21,7 +21,7 @@ export async function login(creds, redirect = "/wdd330-moviedb") {
 
   export async function userName() {
     try {
-        const token = getLocalStorage(tokenKey);
+        const token = getSessionStorage(tokenKey);
         if (!token) return null;
         const decoded = jwtDecode(token); 
         return decoded.name || null; // Return the name from the decoded token
@@ -33,7 +33,7 @@ export async function login(creds, redirect = "/wdd330-moviedb") {
 
 export async function logout() {
     try {
-        localStorage.removeItem(tokenKey);
+        sessionStorage.removeItem(tokenKey);
         window.location = "/wdd330-moviedb/login/index.html";
     } catch (err) {
         console.error("Logout failed: " + err.message);
