@@ -20,7 +20,7 @@
             <input class="form-control" name="id" id="id" type="hidden" />
             <input class="form-control" name="poster" id="poster" type="hidden" readonly />
             <label class="form-label">Title</label
-            ><input class="form-control" name="title" id="title" type="text" />
+            ><input class="form-control" name="title" required id="title" type="text" />
             <label class="form-label">Year</label
             ><input
               class="form-control"
@@ -33,8 +33,8 @@
             <input class="form-control" name="genre" id="genre" type="text" readonly />
 
             <label class="form-label">Media Type</label>
-            <select class="form-control" name="mediatype" id="mediatype">
-              <option>-- Select Media Type --</option>
+            <select class="form-control" name="mediatype" id="mediatype" required>
+              <option value = "">-- Select Media Type --</option>
               <option value="4K UHD">4K UHD</option>
               <option value="Blu-ray">Blu-ray</option>
               <option value="Digital">Digital</option>
