@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MoviesDB | Index</title>
+    
+    
+    <script type="module" crossorigin src="/wdd330-moviedb/assets/movies-77d23ba0.js"></script>
+    <link rel="modulepreload" crossorigin href="/wdd330-moviedb/assets/auth-28531121.js">
+    <link rel="modulepreload" crossorigin href="/wdd330-moviedb/assets/main-10645ea1.js">
+    <link rel="stylesheet" href="/wdd330-moviedb/assets/auth-45676771.css">
+  </head>
+
+  <body>
+    <header class="divider" id="main-header"></header>
+      <div class="container">
+        <h4>Movies /</h4>
+        <br>
+        <div class="row">
+          <div class="col">
+            <button class="btn btn-primary" type="button" onclick="window.location='/movies/new/'">Add Movie</button>
+          </div>
+          <div class="col" style="display: none;">
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success" type="submit">
+                Search
+              </button>
+            </form>
+        </div>
+        <br>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Genre</th>
+                <th>Year</th>
+                <th>Media Type</th>
+                <th>Location</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="moviesList">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    <footer id="main-footer"></footer>
+  </body>
+</html>
