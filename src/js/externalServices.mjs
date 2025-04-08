@@ -1,4 +1,8 @@
 const baseURL = "https://api.goliveira.com";
+function getJWTToken() {
+  const token = JSON.parse(sessionStorage.getItem("so-token")); 
+  return token;
+}
 
 export async function convertToJson(res) {
   const data = await res.json();
@@ -30,13 +34,12 @@ export async function getMovieData(movie, year) {
 }
 
 export async function editMovie(id, payload) {
-  const token = JSON.parse(localStorage.getItem("so-token")); 
 
   const options = {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${token}`
+      "Authorization": `Bearer ${getJWTToken()}`
     },
     body: JSON.stringify(payload),
   };
@@ -44,13 +47,12 @@ export async function editMovie(id, payload) {
 }
 
 export async function moviePurchased(id) {
-  const token = JSON.parse(localStorage.getItem("so-token")); 
 
   const options = {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${token}`
+      "Authorization": `Bearer ${getJWTToken()}`
     },
     body: JSON.stringify({"wishlist": false})
   };
@@ -58,13 +60,12 @@ export async function moviePurchased(id) {
 }
 
 export async function deleteMovie(id) {
-  const token = JSON.parse(localStorage.getItem("so-token")); 
 
   const options = {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${token}`
+      "Authorization": `Bearer ${getJWTToken()}`
     }
   };
   return await fetch(`${baseURL}/movies?id=eq.${id}`, options);
@@ -73,13 +74,12 @@ export async function deleteMovie(id) {
 
 
 export async function createMovie(payload) {
-  const token = JSON.parse(localStorage.getItem("so-token")); 
 
   const options = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${token}`
+      "Authorization": `Bearer ${getJWTToken()}`
     },
     body: JSON.stringify(payload),
   };
