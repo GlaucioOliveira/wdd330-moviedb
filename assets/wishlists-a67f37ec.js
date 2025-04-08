@@ -1,10 +1,10 @@
-import{a as o,g as r,m as l,d}from"./auth-40e2bfcb.js";import"./main-5f9f3224.js";function c(t,s=!1){o().then(e=>{let i=e;if(s&&(i=e.filter(a=>a.wishlist)),!i||i.length===0){document.querySelector(t).innerHTML="<p>Wishlist is empty.</p>";return}const n=i.map(a=>h(a));document.querySelector(t).innerHTML=n.join("")}).catch(e=>{console.error("Error fetching Wish List:",e),document.querySelector(t).innerHTML="<p>Failed to load Wish List. Please try again later.</p>"})}function h(t){return`<tr>
+import{a as o,g as r,m as d,d as l}from"./auth-40e2bfcb.js";import"./main-5f9f3224.js";function c(t,s=!1){o().then(e=>{let i=e;if(s&&(i=e.filter(a=>a.wishlist)),!i||i.length===0){document.querySelector(t).innerHTML="<p>Wishlist is empty.</p>";return}const n=i.map(a=>h(a));document.querySelector(t).innerHTML=n.join("")}).catch(e=>{console.error("Error fetching Wish List:",e),document.querySelector(t).innerHTML="<p>Failed to load Wish List. Please try again later.</p>"})}function h(t){return`<tr>
                 <td><img src="${t.poster}" style="width:128px;padding-right:10px;"><strong>${t.title}</strong><span class="badge badge-pill text-bg-info">Wishlist</span></td>
                 <td>${t.genre}</td>
                 <td>${t.year}</td>
                 <td>${t.mediatype}</td>
                 <td>
-                  <button class="btn btn-success" type="button" onclick="window.location='/wishlists/?pid=${t.id}'">
+                  <button class="btn btn-success" type="button" onclick="window.location='/wdd330-moviedb/wishlists/?pid=${t.id}'">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-square-fill" viewBox="0 0 16 16">
                     <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm10.03 4.97a.75.75 0 0 1 .011 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.75.75 0 0 1 1.08-.022z"/>
                   </svg>
@@ -17,4 +17,4 @@ import{a as o,g as r,m as l,d}from"./auth-40e2bfcb.js";import"./main-5f9f3224.js
                   </svg>
                   </button>
                 </td>
-              </tr>`}async function p(t){await d(t),window.location.reload()}document.addEventListener("DOMContentLoaded",async()=>{let t=r("pid");t&&await l(t),c("#moviesList",!0)});window.deleteMovieConfirm=p;
+              </tr>`}async function p(t){await l(t),window.location.reload()}document.addEventListener("DOMContentLoaded",async()=>{let t=r("pid");t&&await d(t),c("#moviesList",!0)});window.deleteMovieConfirm=p;
