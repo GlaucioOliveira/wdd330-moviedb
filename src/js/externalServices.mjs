@@ -22,7 +22,8 @@ export async function getMovieById(id) {
 }
 
 export async function getMovieData(movie, year) {
-  const response = await fetch(`https://www.omdbapi.com/?t=${movie}&y=${year}&apikey=de78baf9`);
+  const protocol = window.location.hostname === "localhost" ? "http" : "https";
+  const response = await fetch(`${protocol}://www.omdbapi.com/?t=${movie}&y=${year}&apikey=de78baf9`);
   const data = await convertToJson(response);
   return data;
 }
