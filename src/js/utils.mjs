@@ -21,11 +21,29 @@ export function getLocalStorage(key) {
   }
 }
 
+export function getSessionStorage(key) {
+  const data = sessionStorage.getItem(key);
+  if (!data) return null;  
+  try {
+    return JSON.parse(data); 
+  } catch (error) {
+    console.error(`Error parsing sessionStorage key "${key}":`, error);
+    return null;  
+  }
+}
+
 
 // save data to local storage
 export function setLocalStorage(key, data) {
   localStorage.setItem(key, JSON.stringify(data));
 }
+
+
+// save data to sessionStorage storage
+export function setSessionStorage(key, data) {
+  sessionStorage.setItem(key, JSON.stringify(data));
+}
+
 // set a listener for both touchend and click
 export function setClick(selector, callback) {
   qs(selector).addEventListener("touchend", (event) => {

@@ -1,5 +1,5 @@
 import { loginRequest } from "./externalServices.mjs";
-import { setLocalStorage, getLocalStorage } from "./utils.mjs";
+import { setLocalStorage, getLocalStorage, setSessionStorage, getSessionStorage } from "./utils.mjs";
 import { jwtDecode } from "jwt-decode"; 
 
 const tokenKey = "so-token";
@@ -9,8 +9,7 @@ export async function login(creds, redirect = "/wdd330-moviedb") {
       const token = await loginRequest(creds);
       console.log("Received token from loginRequest:", token);  // Debugging
       if (token) {
-        setLocalStorage(tokenKey, token);  // Ensure the token is stored correctly
-        console.log("Token saved to localStorage:", localStorage.getItem(tokenKey));  // Check saved token
+        setSessionStorage(tokenKey, token);  // Ensure the token is stored correctly
         window.location = redirect;
       } else {
         alert("Login failed: No token received");
@@ -48,10 +47,10 @@ export function isTokenValid(token) {
 }
 
 export function checkLogin() {
-  const token = getLocalStorage(tokenKey);
+  const token = getSessionStorage(tokenKey);
   const valid = isTokenValid(token);
   if (!valid) {
-    localStorage.removeItem(tokenKey);
+    sessionStorage.removeItem(tokenKey);
     const location = window.location;
     window.location = `/wdd330-moviedb/login/index.html?redirect=${location.pathname}${location.search}`;
   } else {
