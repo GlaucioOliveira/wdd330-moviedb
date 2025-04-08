@@ -4,6 +4,11 @@
 
 Personal Movie Database (MovieDB) created for class WDD 330
 
+## Demo
+
+![App Demo](demo.gif)
+
+
 ## Prerequisites
 
 - You must have Node installed.
